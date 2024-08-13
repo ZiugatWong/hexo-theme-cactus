@@ -89,3 +89,20 @@
   <% } %>
 </section>
 <% } %>
+
+<% if (theme.show_category_section) { %>
+  <section id="categories">
+    <span class="h1"><a href="<%- url_for('/categories') %>">Categories</a></span>
+    <% if (site.categories && site.categories.length > 0) { %>
+      <ul class="category-list">
+        <% site.categories.forEach(function(category){ %>
+          <li class="category">
+            <a href="<%= url_for(category.path) %>"><%= category.name %></a> (<%= category.length %>)
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No categories found.</p>
+    <% } %>
+  </section>
+  <% } %>
